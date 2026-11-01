@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HR MIS TOTAL SOLUTION - Cloud Attendance & Mobile GPS Platform</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col antialiased">
+
+  <!-- ======================================================== -->
+  <!-- 1. FULL-SCREEN LANDING LOGIN PAGE (DIRECT OPEN ON LINK) -->
+  <!-- ======================================================== -->
+  <div id="app-login-screen" class="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white flex items-center justify-center p-4 sm:p-6 lg:p-8 relative">
+    
+    <!-- Background glowing ambient lights -->
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Login Container Box -->
+    <div class="relative z-10 max-w-5xl w-full bg-slate-900/90 backdrop-blur-2xl rounded-3xl border border-slate-800 shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+      
+      <!-- Left Column: Enterprise MIS Showcase (Visible on Desktop) -->
+      <div class="lg:col-span-6 bg-gradient-to-br from-blue-900/60 via-indigo-950/80 to-slate-900 p-8 sm:p-10 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-800">
+        
+        <div>
+          <!-- Brand Header -->
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-500/30">
+              <i class="fa-solid fa-cloud-bolt"></i>
+            </div>
+            <div>
+              <div class="font-black text-xl tracking-tight text-white">HR MIS TOTAL SOLUTION</div>
+              <span class="text-[11px] font-bold text-blue-300 uppercase tracking-widest block">Enterprise Cloud Platform</span>
+            </div>
+          </div>
+
+          <p class="text-xs text-slate-300 mt-4 leading-relaxed">
+            All-in-one unified human capital management system seamlessly linking <strong>Biometric GPS Attendance</strong>, <strong>Payable Days Calculation</strong>, and <strong>Statutory Payroll & Form 16 Tax Compliance</strong>.
+          </p>
+
+          <!-- Core Feature Pillars -->
+          <div class="mt-8 space-y-3.5 text-xs">
+            
+            <div class="flex items-start gap-3 p-3 bg-white/5 rounded-xl border border-white/10">
+              <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-sm shrink-0">
+                <i class="fa-solid fa-location-crosshairs"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-slate-100">GPS Geofencing Mobile Punch</h5>
+                <p class="text-slate-400 text-[11px] mt-0.5">Strict radius authorization ($100\text{m} - 500\text{m}$) across Gurugram, Bengaluru, Mumbai & Noida.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 bg-white/5 rounded-xl border border-white/10">
+              <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm shrink-0">
+                <i class="fa-solid fa-table-list"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-slate-100">Live Attendance MIS Engine</h5>
+                <p class="text-slate-400 text-[11px] mt-0.5">Total Payable Days formula, Mean Working Hours, Overtime & Attrition risk index.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 bg-white/5 rounded-xl border border-white/10">
+              <div class="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-sm shrink-0">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-slate-100">Payroll, Payslip & Form 16 Tax</h5>
+                <p class="text-slate-400 text-[11px] mt-0.5">Auto LOP deductions, Bank Advice Sheet export, and TRACES Part A & B generation.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Security Certifications Footnote -->
+        <div class="pt-6 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-emerald-400"></i> 256-Bit SSL Secured</span>
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-blue-400"></i> ISO 27001 Certified</span>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Clean & Strong Login Form -->
+      <div class="lg:col-span-6 p-8 sm:p-10 flex flex-col justify-between bg-slate-900">
+        
+        <div>
+          <!-- Form Header -->
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20 uppercase tracking-wider">
+              Authentication Portal
+            </span>
+            <span class="text-xs text-slate-400 font-mono-numeric">v2.6 Enterprise</span>
+          </div>
+
+          <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight mt-3">Welcome to HR MIS</h2>
+          <p class="text-xs text-slate-400 mt-1">Please enter your authorized corporate credentials to sign in.</p>
+
+          <!-- Login Form -->
+          <form onsubmit="handleLoginSubmit(event)" class="mt-6 space-y-4">
+            
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1.5">Employee ID or Work Email</label>
+              <div class="relative">
+                <i class="fa-solid fa-user-shield absolute left-3.5 top-3.5 text-slate-500 text-xs"></i>
+                <input id="login-username" type="text" required placeholder="e.g. developer, admin or employee ID" class="w-full pl-10 pr-3 py-3 bg-slate-800/80 border border-slate-700 rounded-xl text-xs font-semibold text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label class="block text-xs font-bold text-slate-300">Password</label>
+                <button type="button" onclick="showToast('Password reset link sent to registered email address.', 'info')" class="text-[11px] text-blue-400 hover:text-blue-300 font-semibold">
+                  Forgot Password?
+                </button>
+              </div>
+              <div class="relative">
+                <i class="fa-solid fa-lock absolute left-3.5 top-3.5 text-slate-500 text-xs"></i>
+                <input id="login-password" type="password" required placeholder="Enter password (e.g. 120723)" class="w-full pl-10 pr-10 py-3 bg-slate-800/80 border border-slate-700 rounded-xl text-xs font-semibold text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <button type="button" onclick="togglePasswordVisibility('login-password', 'landing-pwd-toggle')" class="absolute right-3.5 top-3.5 text-slate-500 hover:text-slate-300 text-xs">
+                  <i id="landing-pwd-toggle" class="fa-solid fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between text-xs pt-1">
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" checked class="w-4 h-4 text-blue-600 bg-slate-800 border-slate-700 rounded">
+                <span class="text-[11px] text-slate-300">Keep me signed in</span>
+              </label>
+              <span class="text-[10px] text-emerald-400 font-bold flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Cloud Online
+              </span>
+            </div>
+
+            <!-- Sign In Button -->
+            <button type="submit" class="w-full py-3 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:opacity-95 text-white font-bold rounded-xl text-xs shadow-lg shadow-blue-500/25 transition flex items-center justify-center gap-2 mt-2 cursor-pointer">
+              <i class="fa-solid fa-right-to-bracket"></i> Sign In to Portal
+            </button>
+
+          </form>
+        </div>
+
+        <div class="pt-6 border-t border-slate-800 text-center text-[10px] text-slate-500">
+          HR MIS TOTAL SOLUTION • Enterprise Security Architecture • All Rights Reserved
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- 2. ENTERPRISE DASHBOARD & WORKSPACE (REVEALED UPON LOGIN) -->
+  <!-- ======================================================== -->
+  <div id="app-dashboard-workspace" class="hidden min-h-screen flex flex-col">
+
+  <!-- Top Navigation Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm no-print">
+    <div class="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      
+      <!-- Brand & Cloud Status -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 via-indigo-600 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-blue-500/20">
+          <i class="fa-solid fa-cloud-bolt text-lg"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-base md:text-lg tracking-tight text-slate-900">HR MIS TOTAL SOLUTION</span>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-700 uppercase tracking-wider">Enterprise MIS</span>
+          </div>
+          <p class="text-[11px] text-slate-400 font-medium">Total Attendance MIS, Mobile GPS & Statutory Payroll Solution</p>
+        </div>
+      </div>
+
+      <!-- Center System Indicators -->
+      <div class="hidden lg:flex items-center gap-6 text-xs text-slate-500">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="font-medium text-slate-700">Cloud Sync: Real-Time</span>
+        </div>
+        <div class="h-4 w-px bg-slate-200"></div>
+        <div class="flex items-center gap-1.5 font-mono-numeric">
+          <i class="fa-regular fa-clock text-blue-500"></i>
+          <span id="topbar-live-clock">Loading live time...</span>
+        </div>
+        <div class="h-4 w-px bg-slate-200"></div>
+        <div class="flex items-center gap-1.5">
+          <i class="fa-solid fa-satellite-dish text-cyan-600"></i>
+          <span>GPS Geofence Live</span>
+        </div>
+      </div>
+
+      <!-- Right Controls & RBAC Role Switcher & Login Option -->
+      <div class="flex items-center gap-3">
+        
+        <!-- Yearly License Recharge Trigger -->
+        <button onclick="openRechargeModal()" class="hidden md:flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl text-xs font-bold shadow-sm shadow-amber-500/20 hover:opacity-95 transition cursor-pointer">
+          <i class="fa-solid fa-bolt"></i>
+          <span>Yearly Recharge</span>
+        </button>
+
+        <!-- Mobile App Shortcut Button -->
+        <button onclick="switchTab('tab-mobile-app')" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl text-xs font-bold shadow-sm shadow-blue-500/20 hover:opacity-95 transition">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+          <span>Mobile GPS App</span>
+        </button>
+
+        <!-- RBAC Perspective Switcher -->
+        <div class="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs">
+          <span class="text-[11px] text-slate-500 font-semibold px-2 hidden sm:inline">Role:</span>
+          <select id="rbac-role-select" class="bg-white text-slate-800 text-xs font-semibold py-1.5 px-3 rounded-lg border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer">
+            <option value="super_admin">👑 Super Admin (Full Control)</option>
+            <option value="hr_admin">👥 HR Admin (Attendance & Staff)</option>
+            <option value="finance_admin">💳 Finance / Payroll Admin</option>
+            <option value="manager">👔 L1 / L2 Reporting Manager</option>
+            <option value="employee">👤 Employee Self-Service</option>
+          </select>
+        </div>
+
+        <!-- Role Badge -->
+        <span id="active-role-badge" class="hidden md:inline-block px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider bg-slate-900 text-white">
+          SUPER ADMIN
+        </span>
+
+        <!-- User Profile Pill & Sign Out Button -->
+        <div class="flex items-center gap-2 pl-2 border-l border-slate-200">
+          <div class="flex items-center gap-2 text-left p-1 rounded-xl">
+            <img id="topbar-user-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="User" class="w-8 h-8 rounded-full object-cover ring-2 ring-blue-500/30">
+            <div class="hidden xl:block text-left">
+              <div id="topbar-user-name" class="text-xs font-bold text-slate-800 leading-none">Aarav Sharma</div>
+              <div id="topbar-user-role" class="text-[10px] text-slate-400 mt-0.5">Principal Cloud Architect</div>
+            </div>
+          </div>
+          <button onclick="handleLogout()" title="Sign Out to Login Page" class="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold rounded-xl border border-rose-200 transition flex items-center gap-1.5 shadow-sm cursor-pointer">
+            <i class="fa-solid fa-power-off"></i>
+            <span class="hidden sm:inline">Sign Out</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Body Layout (Sidebar + Content Workspace) -->
+  <div class="max-w-[1680px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 flex flex-col md:flex-row gap-6">
+
+    <!-- Left Navigation Sidebar -->
+    <aside class="w-full md:w-64 shrink-0 no-print">
+      <div class="bg-white rounded-2xl border border-slate-200 p-3 shadow-sm sticky top-24 space-y-1">
+        
+        <div class="px-3 py-2 text-[10px] uppercase font-extrabold tracking-wider text-slate-400 flex items-center justify-between">
+          <span>Core MIS Modules</span>
+          <button onclick="openNewEmployeeModal()" title="Onboard New Employee" class="text-blue-600 hover:text-blue-800 font-bold text-[11px] flex items-center gap-1 transition">
+            <i class="fa-solid fa-plus text-[10px]"></i> New Staff
+          </button>
+        </div>
+
+        <button data-tab="tab-attendance-mis" class="nav-tab-btn nav-tab-active w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-between text-slate-700 hover:bg-slate-50 transition">
+          <span class="flex items-center gap-2.5">
+            <i class="fa-solid fa-table-list text-blue-600 text-sm w-4"></i> Attendance MIS Master
+          </span>
+          <span class="text-[10px] px-1.5 py-0.5 bg-blue-100 text-blue-700 font-bold rounded">Live</span>
+        </button>
+
+        <button data-tab="tab-mobile-app" class="nav-tab-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-between text-slate-700 hover:bg-slate-50 transition bg-cyan-50/50">
+          <span class="flex items-center gap-2.5">
+            <i class="fa-solid fa-mobile-screen-button text-cyan-600 text-sm w-4"></i> Mobile GPS Punch App
+          </span>
+          <span class="text-[10px] px-1.5 py-0.5 bg-cyan-100 text-cyan-800 font-bold rounded">App View</span>
+        </button>
+
+        <button data-tab="tab-payroll-payslip" class="nav-tab-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-medium flex items-center justify-between text-slate-700 hover:bg-slate-50 transition require-finance">
+          <span class="flex items-center gap-2.5">
+            <i class="fa-solid fa-receipt text-indigo-600 text-sm w-4"></i> Finance & Pay Slip
+          </span>
+          <span class="text-[10px] px-1.5 py-0.5 bg-slate-100 text-slate-600 rounded">Auto-Sync</span>
+        </button>
+
+        <button data-tab="tab-form16-tax" class="nav-tab-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-medium flex items-center justify-between text-slate-700 hover:bg-slate-50 transition require-finance">
+          <span class="flex items-center gap-2.5">
+            <i class="fa-solid fa-file-shield text-emerald-600 text-sm w-4"></i> Form 16 & Tax Portal
+          </span>
+          <span class="text-[10px] px-1.5 py-0.5 bg-emerald-50 text-emerald-700 font-bold rounded">Part A & B</span>
+        </button>
+
+        <button data-tab="tab-approvals-hierarchy" class="nav-tab-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-medium flex items-center justify-between text-slate-700 hover:bg-slate-50 transition">
+          <span class="flex items-center gap-2.5">
+            <i class="fa-solid fa-sitemap text-amber-600 text-sm w-4"></i> Multi-Tier Approvals
+          </span>
+          <span class="text-[10px] px-1.5 py-0.5 bg-amber-100 text-amber-800 font-bold rounded-full">3 Pending</span>
+        </button>
+
+        <button data-tab="tab-gps-geofencing" class="nav-tab-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-medium flex items-center justify-between text-slate-700 hover:bg-slate-50 transition">
+          <span class="flex items-center gap-2.5">
+            <i class="fa-solid fa-location-crosshairs text-sky-600 text-sm w-4"></i> GPS Geofencing
+          </span>
+          <span class="text-[10px] px-1.5 py-0.5 bg-sky-50 text-sky-700 rounded">Radar</span>
+        </button>
+
+        <button data-tab="tab-notices-milestones" class="nav-tab-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-medium flex items-center justify-between text-slate-700 hover:bg-slate-50 transition">
+          <span class="flex items-center gap-2.5">
+            <i class="fa-solid fa-bullhorn text-purple-600 text-sm w-4"></i> Notices & Engagement
+          </span>
+          <span class="text-[10px] px-1.5 py-0.5 bg-purple-50 text-purple-700 rounded">Culture</span>
+        </button>
+
+        <button data-tab="tab-fnf-settlement" class="nav-tab-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-medium flex items-center justify-between text-slate-700 hover:bg-slate-50 transition require-finance">
+          <span class="flex items-center gap-2.5">
+            <i class="fa-solid fa-calculator text-rose-600 text-sm w-4"></i> Full & Final (F&F)
+          </span>
+          <span class="text-[10px] px-1.5 py-0.5 bg-rose-50 text-rose-700 rounded">Exit</span>
+        </button>
+
+        <button data-tab="tab-admin-control" class="nav-tab-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-between text-slate-700 hover:bg-slate-50 transition bg-rose-50/50">
+          <span class="flex items-center gap-2.5">
+            <i class="fa-solid fa-user-shield text-rose-600 text-sm w-4"></i> Admin Panel & Security
+          </span>
+          <span class="text-[10px] px-1.5 py-0.5 bg-rose-100 text-rose-800 font-bold rounded">Master</span>
+        </button>
+
+        <div class="pt-4 mt-4 border-t border-slate-100">
+          <div class="p-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
+            <div class="flex items-center gap-2 text-blue-900 font-bold text-xs">
+              <i class="fa-solid fa-cloud-arrow-down"></i> Export Quick Actions
+            </div>
+            <p class="text-[10px] text-blue-700/80 mt-1 mb-2.5 leading-relaxed">Download official audit sheets formatted for Account Dept & Banks.</p>
+            <div class="space-y-1.5">
+              <button onclick="exportAttendanceCSV()" class="w-full py-1.5 px-2 bg-white hover:bg-blue-600 hover:text-white text-slate-700 font-semibold text-[11px] rounded-lg border border-slate-200 transition shadow-sm flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-file-excel text-emerald-600"></i> Attendance MIS (Excel)
+              </button>
+              <button onclick="exportBankAdviceSheet()" class="w-full py-1.5 px-2 bg-white hover:bg-indigo-600 hover:text-white text-slate-700 font-semibold text-[11px] rounded-lg border border-slate-200 transition shadow-sm flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-building-columns text-indigo-600"></i> Bank Salary Advice
+              </button>
+              <button onclick="exportStatutoryReports()" class="w-full py-1.5 px-2 bg-white hover:bg-emerald-600 hover:text-white text-slate-700 font-semibold text-[11px] rounded-lg border border-slate-200 transition shadow-sm flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-file-csv text-blue-600"></i> PF / ESI / TDS Report
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- Right Workspace Area -->
+    <main class="flex-1 min-w-0">
+
+      <!-- ========================================== -->
+      <!-- TAB 1: ATTENDANCE MIS MASTER DASHBOARD -->
+      <!-- ========================================== -->
+      <section id="tab-attendance-mis" class="tab-content-panel space-y-6">
+
+        <!-- Top Header & Live KPI Metric Cards -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h1 class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">Enterprise Attendance MIS Master</h1>
+            <p class="text-xs text-slate-500 mt-0.5">Comprehensive time-tracking, payable days engine, and punctuality audit report.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-semibold text-slate-500">Period:</span>
+            <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-xs font-bold text-slate-800 shadow-sm font-mono-numeric">
+              <i class="fa-regular fa-calendar-days text-blue-600 mr-1.5"></i> October 2026 (31 Days)
+            </span>
+          </div>
+        </div>
+
+        <!-- Metric KPI Cards -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">Total Headcount</span>
+              <span id="kpi-total-emp" class="text-2xl font-black text-slate-900 font-mono-numeric">6</span>
+              <span class="text-[10px] text-emerald-600 font-semibold block mt-0.5"><i class="fa-solid fa-arrow-trend-up mr-0.5"></i> 100% Active Profiles</span>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-users"></i>
+            </div>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">Average Attendance</span>
+              <span id="kpi-avg-attendance" class="text-2xl font-black text-emerald-600 font-mono-numeric">90.2%</span>
+              <span class="text-[10px] text-slate-400 block mt-0.5">Formula: (Present / 22 Working) × 100</span>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">Total Overtime (OT)</span>
+              <span id="kpi-total-ot" class="text-2xl font-black text-indigo-600 font-mono-numeric">67.5 hrs</span>
+              <span class="text-[10px] text-indigo-700/80 font-medium block mt-0.5">Synced to Payroll Earning Head</span>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-user-clock"></i>
+            </div>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">Total LOP (Loss of Pay)</span>
+              <span id="kpi-total-lop" class="text-2xl font-black text-rose-600 font-mono-numeric">4 days</span>
+              <span class="text-[10px] text-rose-700/80 font-medium block mt-0.5">Auto-deducted from Salary</span>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-calendar-xmark"></i>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Analytics Charts Row (Interactive Visualization) -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Donut Distribution -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Attendance Breakdown</h3>
+              <span class="text-[10px] text-slate-400">Monthly Aggregated</span>
+            </div>
+            <div class="relative h-48 mt-3">
+              <canvas id="chart-attendance-donut"></canvas>
+            </div>
+          </div>
+
+          <!-- Mean Working Hours Bar Chart -->
+          <div class="lg:col-span-2 bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <div>
+                <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Productivity & Mean Working Hours</h3>
+                <p class="text-[10px] text-slate-400 mt-0.5">Formula: $\text{Mean Hours} = \frac{\text{Total Effective Working Hours}}{\text{Total Days Present}}$</p>
+              </div>
+              <span class="text-[10px] font-semibold px-2 py-0.5 bg-blue-50 text-blue-700 rounded border border-blue-200">
+                Standard: 8.5 h/day
+              </span>
+            </div>
+            <div class="relative h-48 mt-3">
+              <canvas id="chart-mean-hours-bar"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter & Search Toolbar -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+            
+            <!-- Department Filter -->
+            <div class="flex items-center gap-1.5 text-xs text-slate-600">
+              <i class="fa-solid fa-filter text-slate-400"></i>
+              <select id="filter-dept" class="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg px-2.5 py-1.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <option value="all">All Departments</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Finance & Accounts">Finance & Accounts</option>
+                <option value="Sales & Business Dev">Sales & Business Dev</option>
+                <option value="Operations & Logistics">Operations & Logistics</option>
+              </select>
+            </div>
+
+            <!-- Branch Location Filter -->
+            <div class="flex items-center gap-1.5 text-xs text-slate-600">
+              <select id="filter-branch" class="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg px-2.5 py-1.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <option value="all">All Locations (Geofences)</option>
+                <option value="LOC-01">Gurugram HQ</option>
+                <option value="LOC-02">Bengaluru Tech Park</option>
+                <option value="LOC-03">Mumbai BKC</option>
+                <option value="LOC-04">Noida Logistics</option>
+              </select>
+            </div>
+
+            <!-- Search Field -->
+            <div class="relative w-full sm:w-60">
+              <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+              <input id="filter-search" type="text" placeholder="Search by name, ID or role..." class="w-full pl-8 pr-3 py-1.5 bg-slate-50 border border-slate-200 text-xs rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-700 placeholder-slate-400">
+            </div>
+
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="flex items-center gap-2 w-full md:w-auto justify-end">
+            <button id="btn-add-employee" onclick="openNewEmployeeModal()" class="px-3.5 py-1.5 text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-sm shadow-blue-500/20 transition flex items-center gap-1.5">
+              <i class="fa-solid fa-user-plus"></i> Add New Employee
+            </button>
+            <button onclick="exportAttendanceCSV()" class="px-3 py-1.5 text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg shadow-sm transition flex items-center gap-1.5">
+              <i class="fa-solid fa-file-excel"></i> Export CSV / Excel
+            </button>
+            <button onclick="window.print()" class="px-3 py-1.5 text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg border border-slate-200 transition flex items-center gap-1.5">
+              <i class="fa-solid fa-print"></i> Print Report
+            </button>
+          </div>
+        </div>
+
+        <!-- Master Attendance MIS Table -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <!-- Top Group Headers -->
+                <tr class="bg-slate-100/80 text-[11px] font-bold text-slate-600 uppercase tracking-wider border-b border-slate-200">
+                  <th colspan="2" class="py-2.5 px-3 border-r border-slate-200 text-slate-700">1. Basic Employee Info</th>
+                  <th colspan="5" class="py-2.5 px-2 border-r border-slate-200 text-center bg-blue-50/60 text-blue-900">2. Core Time & Attendance Metrics</th>
+                  <th colspan="2" class="py-2.5 px-2 border-r border-slate-200 text-center bg-amber-50/60 text-amber-900">3. Leave Management</th>
+                  <th colspan="3" class="py-2.5 px-2 border-r border-slate-200 text-center bg-indigo-50/60 text-indigo-900">4. Punctuality & Working Hours</th>
+                  <th colspan="1" class="py-2.5 px-2 border-r border-slate-200 text-center bg-purple-50/60 text-purple-900">5. Exceptions</th>
+                  <th colspan="1" class="py-2.5 px-2 border-r border-slate-200 text-center bg-emerald-50/60 text-emerald-900">6. Analytics</th>
+                  <th colspan="1" class="py-2.5 px-3 text-right">Actions</th>
+                </tr>
+                <!-- Sub Columns -->
+                <tr class="bg-slate-50 text-[10px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200">
+                  <th class="py-2 px-3">Employee Name & ID</th>
+                  <th class="py-2 px-2">Role & Manager</th>
+                  <th class="py-2 px-2 text-center" title="Calendar Days">Cal. Days</th>
+                  <th class="py-2 px-2 text-center" title="Present Days (P)">Present (P)</th>
+                  <th class="py-2 px-2 text-center" title="Unauthorized Absent (A)">Absent (A)</th>
+                  <th class="py-2 px-2 text-center" title="Weekly Offs (WO) / Paid Holidays (PH)">WO / PH</th>
+                  <th class="py-2 px-2 text-center font-bold text-blue-700" title="Present + WO + PH + Paid Leaves">Payable Days</th>
+                  <th class="py-2 px-2 text-center">CL / SL / EL</th>
+                  <th class="py-2 px-2 text-center text-rose-700" title="Leave Without Pay / Loss of Pay">LWP / LOP</th>
+                  <th class="py-2 px-2 text-center">Late / Early</th>
+                  <th class="py-2 px-2 text-center">Overtime (OT)</th>
+                  <th class="py-2 px-2 text-center font-bold text-slate-700">Mean Hours</th>
+                  <th class="py-2 px-2 text-center">Missed / Reg.</th>
+                  <th class="py-2 px-2 text-center">Attendance %</th>
+                  <th class="py-2 px-3 text-right">Generate</th>
+                </tr>
+              </thead>
+              <tbody id="attendance-table-body" class="divide-y divide-slate-100">
+                <!-- Dynamically populated via JS -->
+              </tbody>
+            </table>
+          </div>
+          <!-- Table Footer Notes -->
+          <div class="p-3 bg-slate-50 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-[11px] text-slate-500 gap-2">
+            <div>
+              <span class="font-bold text-slate-700">Audit Rule:</span> Total Payable Days = Present (P) + Weekly Offs (WO) + Paid Holidays (PH) + Approved Paid Leaves (CL + SL + EL).
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Low Attrition Risk (&gt;88%)</span>
+              <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-500"></span> Moderate (75-88%)</span>
+              <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-rose-500"></span> High Risk (&lt;75%)</span>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TAB: MOBILE GPS APP COMPANION -->
+      <!-- ========================================== -->
+      <section id="tab-mobile-app" class="tab-content-panel hidden space-y-6">
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-cyan-100 text-cyan-800 uppercase tracking-wider">Companion App</span>
+              <h1 class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">HR MIS Mobile GPS Punch App</h1>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Native-style smartphone interface with real-time GPS coordinates, geofence radius validation & biometric punch.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="detectRealGpsLocation()" class="px-3.5 py-1.5 text-xs font-semibold bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg shadow-sm transition flex items-center gap-1.5">
+              <i class="fa-solid fa-location-arrow"></i> Detect Real Device GPS
+            </button>
+            <button onclick="openLoginModal()" class="px-3.5 py-1.5 text-xs font-semibold bg-white border border-slate-200 text-slate-700 rounded-lg hover:bg-slate-50 shadow-sm transition flex items-center gap-1.5">
+              <i class="fa-solid fa-user-gear"></i> Switch Mobile User
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+          <!-- Left / Center: Interactive Smartphone Mockup -->
+          <div class="lg:col-span-5 flex justify-center">
+            
+            <!-- Phone Chassis -->
+            <div class="smartphone-frame">
+              <div class="smartphone-screen">
+
+                <!-- Notch / Status Bar -->
+                <div class="smartphone-notch">
+                  <div id="mobile-status-clock" class="text-[11px] font-bold text-slate-800 font-mono-numeric">09:41</div>
+                  <div class="dynamic-island flex items-center justify-center">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  </div>
+                  <div class="flex items-center gap-1.5 text-slate-600 text-[10px]">
+                    <i class="fa-solid fa-signal"></i>
+                    <i class="fa-solid fa-wifi"></i>
+                    <i class="fa-solid fa-battery-three-quarters text-emerald-600"></i>
+                  </div>
+                </div>
+
+                <!-- Mobile App Content Area -->
+                <div class="p-4 flex-1 flex flex-col justify-between space-y-4">
+                  
+                  <!-- Mobile App Top Bar -->
+                  <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+                    <div class="flex items-center gap-2">
+                      <div class="w-7 h-7 rounded-lg bg-blue-600 text-white flex items-center justify-center text-xs font-bold shadow-sm">
+                        <i class="fa-solid fa-cloud"></i>
+                      </div>
+                      <span class="font-extrabold text-xs text-slate-900 tracking-tight">HR MIS MOBILE</span>
+                    </div>
+                    <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                      v2.4 Live
+                    </span>
+                  </div>
+
+                  <!-- Logged-in Employee Profile Card -->
+                  <div class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-3 rounded-2xl shadow-sm flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                      <img id="mobile-user-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" class="w-10 h-10 rounded-full object-cover ring-2 ring-white/50">
+                      <div>
+                        <div id="mobile-user-name" class="font-bold text-xs">Aarav Sharma</div>
+                        <div class="text-[10px] text-blue-200"><span id="mobile-user-id" class="font-mono-numeric">ZG-1001</span> • <span id="mobile-user-dept">IT</span></div>
+                      </div>
+                    </div>
+                    <button onclick="openLoginModal()" title="Switch Account" class="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white text-xs transition">
+                      <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                    </button>
+                  </div>
+
+                  <!-- TAB 1: PUNCH & ATTENDANCE SCREEN -->
+                  <div id="mobile-panel-punch" class="mobile-app-panel space-y-3.5 flex-1">
+                    
+                    <!-- Geofence & GPS Radar Status Card -->
+                    <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm space-y-2 text-xs">
+                      <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">GPS Satellite Sync</span>
+                        <div id="mobile-gps-status-badge" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center gap-1">
+                          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> IN GEOFENCE (AUTHORIZED)
+                        </div>
+                      </div>
+
+                      <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 space-y-1">
+                        <div class="flex justify-between items-center text-[11px]">
+                          <span class="text-slate-500 font-medium">Designated Branch:</span>
+                          <span id="mobile-nearest-branch" class="font-bold text-slate-800">Gurugram HQ</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[11px]">
+                          <span class="text-slate-500 font-medium">Distance from Center:</span>
+                          <span id="mobile-gps-distance" class="font-bold text-emerald-700 font-mono-numeric">38 meters</span>
+                        </div>
+                        <div class="text-[9px] text-slate-400 flex justify-between pt-1 border-t border-slate-200">
+                          <span id="mobile-radius-info">Perimeter Radius: 250m</span>
+                          <span id="mobile-gps-coords" class="font-mono-numeric">Lat: 28.4947, Lng: 77.0894</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Big Biometric Punch Action Card -->
+                    <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm text-center">
+                      <div class="text-[11px] font-medium text-slate-400">Current Local Time (IST)</div>
+                      <div id="mobile-punch-time-display" class="text-2xl font-black text-slate-900 font-mono-numeric tracking-tight mt-0.5">09:41:20 AM</div>
+                      
+                      <div class="my-4">
+                        <button id="mobile-punch-action-btn" onclick="handleMobilePunchAction()" class="focus:outline-none">
+                          <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center text-3xl shadow-lg shadow-blue-500/40 biometric-scanner-ring cursor-pointer hover:scale-105 active:scale-95 transition">
+                            <i class="fa-solid fa-fingerprint"></i>
+                          </div>
+                          <div class="mt-3 font-extrabold text-sm text-slate-900 uppercase tracking-wider">TAP TO PUNCH IN</div>
+                          <p class="text-[11px] text-slate-500 mt-0.5">Biometric GPS Attendance Log</p>
+                        </button>
+                      </div>
+
+                      <div class="bg-blue-50/70 p-2 rounded-xl border border-blue-100 flex items-center justify-around text-xs">
+                        <div>
+                          <span class="text-[9px] text-slate-500 block uppercase font-bold">Shift In Progress</span>
+                          <span id="mobile-shift-timer" class="font-bold font-mono-numeric text-blue-700">00:00:00</span>
+                        </div>
+                        <div class="h-6 w-px bg-blue-200"></div>
+                        <div>
+                          <span class="text-[9px] text-slate-500 block uppercase font-bold">Expected Hours</span>
+                          <span class="font-bold text-slate-700">08:30 hrs</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Punch Timeline History -->
+                    <div class="space-y-1.5">
+                      <div class="flex items-center justify-between text-xs px-1">
+                        <span class="font-bold text-slate-800 text-[11px] uppercase tracking-wider">Today's Punch Log</span>
+                        <span class="text-[10px] text-slate-400">Auto-Cloud Synced</span>
+                      </div>
+                      <div id="mobile-punch-history-list" class="space-y-1.5 max-h-36 overflow-y-auto pr-1">
+                        <!-- Populated dynamically via JS -->
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- TAB 2: MOBILE LEAVES SCREEN -->
+                  <div id="mobile-panel-leaves" class="mobile-app-panel hidden space-y-3 flex-1 text-xs">
+                    <div class="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                      <h4 class="font-bold text-slate-900">Apply Regularization / Leave</h4>
+                      <p class="text-[11px] text-slate-500">Submit requests directly to L1 Supervisor for swift mobile approval.</p>
+                      
+                      <div class="space-y-2 pt-2">
+                        <div>
+                          <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Request Type</label>
+                          <select class="w-full bg-slate-50 border border-slate-200 p-1.5 rounded-lg text-xs">
+                            <option>Missed Punch Regularization</option>
+                            <option>Casual Leave (CL)</option>
+                            <option>Sick Leave (SL)</option>
+                            <option>Client Site Transit Punch</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Reason / Justification</label>
+                          <input type="text" placeholder="e.g. Metro delay / Client transit" class="w-full bg-slate-50 border border-slate-200 p-1.5 rounded-lg text-xs">
+                        </div>
+                        <button onclick="showToast('Regularization request submitted to L1 Supervisor!', 'success')" class="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-xs transition mt-2">
+                          Submit to L1 Manager
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- TAB 3: MOBILE PAYSLIP SCREEN -->
+                  <div id="mobile-panel-payslip" class="mobile-app-panel hidden space-y-3 flex-1 text-xs">
+                    <div class="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                      <h4 class="font-bold text-slate-900">Latest Salary Slip (Oct 2026)</h4>
+                      <p class="text-[11px] text-slate-500">Synced with Total Payable Days & Overtime.</p>
+                      <button onclick="openPayslipModal(currentUser.id)" class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl text-xs transition">
+                        <i class="fa-solid fa-file-invoice-dollar mr-1"></i> Open Full Interactive Payslip
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- TAB 4: MOBILE NOTICES SCREEN -->
+                  <div id="mobile-panel-notices" class="mobile-app-panel hidden space-y-3 flex-1 text-xs">
+                    <div class="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                      <h4 class="font-bold text-slate-900">Company Announcements</h4>
+                      <div class="p-2.5 bg-blue-50 rounded-xl border border-blue-100 text-[11px] text-blue-900">
+                        <strong>Diwali Bonus:</strong> Credited along with October payroll for all eligible employees.
+                      </div>
+                      <div class="p-2.5 bg-amber-50 rounded-xl border border-amber-100 text-[11px] text-amber-900">
+                        <strong>Tax Proofs:</strong> Submit Section 80C & HRA rent proofs by Dec 15 on portal.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Bottom Mobile App Navigation Bar -->
+                  <div class="bg-white border-t border-slate-200 pt-2 pb-1 -mx-4 px-4 flex items-center justify-around text-slate-400 text-center">
+                    <button id="mobile-nav-btn-punch" onclick="switchMobileTab('punch')" class="mobile-bottom-nav-btn text-blue-600 font-bold flex flex-col items-center">
+                      <i class="fa-solid fa-fingerprint text-base"></i>
+                      <span class="text-[9px] mt-0.5">Punch</span>
+                    </button>
+                    <button id="mobile-nav-btn-leaves" onclick="switchMobileTab('leaves')" class="mobile-bottom-nav-btn flex flex-col items-center">
+                      <i class="fa-solid fa-calendar-check text-base"></i>
+                      <span class="text-[9px] mt-0.5">Leaves</span>
+                    </button>
+                    <button id="mobile-nav-btn-payslip" onclick="switchMobileTab('payslip')" class="mobile-bottom-nav-btn flex flex-col items-center">
+                      <i class="fa-solid fa-receipt text-base"></i>
+                      <span class="text-[9px] mt-0.5">Payslip</span>
+                    </button>
+                    <button id="mobile-nav-btn-notices" onclick="switchMobileTab('notices')" class="mobile-bottom-nav-btn flex flex-col items-center">
+                      <i class="fa-solid fa-bullhorn text-base"></i>
+                      <span class="text-[9px] mt-0.5">Notices</span>
+                    </button>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: GPS Simulator Controls & Enterprise Architecture -->
+          <div class="lg:col-span-7 space-y-5">
+            
+            <!-- Quick GPS Simulation Presets Card -->
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div>
+                  <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                    <i class="fa-solid fa-sliders text-blue-600"></i> GPS Location Test Presets
+                  </h3>
+                  <p class="text-[11px] text-slate-400 mt-0.5">Test real-time geofence calculation using simulated coordinates or real satellite hardware.</p>
+                </div>
+                <button onclick="detectRealGpsLocation()" class="px-3 py-1.5 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 rounded-lg transition flex items-center gap-1">
+                  <i class="fa-solid fa-satellite"></i> Real Device GPS
+                </button>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                
+                <button onclick="setSimulatedGps('gurugram_hq_inside')" class="p-3 rounded-xl border border-emerald-200 bg-emerald-50/60 hover:bg-emerald-100/80 text-left transition space-y-1">
+                  <div class="flex items-center justify-between font-bold text-emerald-900">
+                    <span>🏢 Gurugram HQ (Inside)</span>
+                    <span class="text-[10px] px-1.5 py-0.2 bg-emerald-200 text-emerald-800 rounded">28m Away</span>
+                  </div>
+                  <p class="text-[11px] text-emerald-700">Within 250m perimeter. Biometric punch authorized.</p>
+                </button>
+
+                <button onclick="setSimulatedGps('bengaluru_hub_inside')" class="p-3 rounded-xl border border-emerald-200 bg-emerald-50/60 hover:bg-emerald-100/80 text-left transition space-y-1">
+                  <div class="flex items-center justify-between font-bold text-emerald-900">
+                    <span>💻 Bengaluru Hub (Inside)</span>
+                    <span class="text-[10px] px-1.5 py-0.2 bg-emerald-200 text-emerald-800 rounded">35m Away</span>
+                  </div>
+                  <p class="text-[11px] text-emerald-700">Within 300m perimeter. Biometric punch authorized.</p>
+                </button>
+
+                <button onclick="setSimulatedGps('client_outside')" class="p-3 rounded-xl border border-rose-200 bg-rose-50/60 hover:bg-rose-100/80 text-left transition space-y-1">
+                  <div class="flex items-center justify-between font-bold text-rose-900">
+                    <span>📍 Client Transit (Outside)</span>
+                    <span class="text-[10px] px-1.5 py-0.2 bg-rose-200 text-rose-800 rounded">920m Away</span>
+                  </div>
+                  <p class="text-[11px] text-rose-700">Outside perimeter! Triggers Location Mismatch error.</p>
+                </button>
+
+                <button onclick="setSimulatedGps('home_outside')" class="p-3 rounded-xl border border-rose-200 bg-rose-50/60 hover:bg-rose-100/80 text-left transition space-y-1">
+                  <div class="flex items-center justify-between font-bold text-rose-900">
+                    <span>🏠 Home / Remote (Outside)</span>
+                    <span class="text-[10px] px-1.5 py-0.2 bg-rose-200 text-rose-800 rounded">4.8km Away</span>
+                  </div>
+                  <p class="text-[11px] text-rose-700">Requires L1 Regularization approval for WFH.</p>
+                </button>
+
+              </div>
+            </div>
+
+            <!-- Enterprise Mobile Architecture Features -->
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4 text-xs">
+              <h3 class="font-bold text-slate-900 text-sm border-b border-slate-100 pb-2">
+                Mobile GPS & Biometric Attendance Architecture
+              </h3>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <div class="font-bold text-slate-800 flex items-center gap-1.5">
+                    <i class="fa-solid fa-shield-halved text-blue-600"></i> Anti-Spoofing & Mock Location Shield
+                  </div>
+                  <p class="text-slate-500 text-[11px] leading-relaxed">
+                    Verifies genuine hardware GPS provider flags, network cell-tower triangulation, and prohibits fake GPS developer apps.
+                  </p>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <div class="font-bold text-slate-800 flex items-center gap-1.5">
+                    <i class="fa-solid fa-bolt text-amber-500"></i> Real-Time Payable Days Recalculation
+                  </div>
+                  <p class="text-slate-500 text-[11px] leading-relaxed">
+                    Every valid mobile punch immediately increments the monthly Present Days (P), updates Mean Login Hours, and syncs to Payroll.
+                  </p>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <div class="font-bold text-slate-800 flex items-center gap-1.5">
+                    <i class="fa-solid fa-wifi text-emerald-600"></i> Offline Geotagging & Auto-Retry
+                  </div>
+                  <p class="text-slate-500 text-[11px] leading-relaxed">
+                    In basement garages or poor connectivity, punches are encrypted on-device and batch-dispatched upon network reconnection.
+                  </p>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <div class="font-bold text-slate-800 flex items-center gap-1.5">
+                    <i class="fa-solid fa-sitemap text-indigo-600"></i> One-Tap Regularization Bridge
+                  </div>
+                  <p class="text-slate-500 text-[11px] leading-relaxed">
+                    If an employee is off-premise for a client pitch, 1-tap regularization routes directly to L1 manager with GPS transit proof.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TAB 2: FINANCE & PAY SLIP GENERATION -->
+      <!-- ========================================== -->
+      <section id="tab-payroll-payslip" class="tab-content-panel hidden space-y-6">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h1 class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">Finance & Pay Slip Integration Module</h1>
+            <p class="text-xs text-slate-500 mt-0.5">Automated payroll engine synced directly with Total Payable Days, LOP deductions & Overtime.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="exportBankAdviceSheet()" class="px-3.5 py-1.5 text-xs font-semibold bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow-sm transition flex items-center gap-1.5">
+              <i class="fa-solid fa-file-invoice"></i> Export Bank Advice Sheet (CSV)
+            </button>
+          </div>
+        </div>
+
+        <!-- Formula Banner -->
+        <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white p-5 rounded-2xl shadow-md">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-blue-300">Payroll Calculation Pipeline</span>
+              <h3 class="text-base font-bold mt-1">100% Automated Attendance-to-Salary Synchronization</h3>
+              <p class="text-xs text-slate-300 mt-1 max-w-2xl leading-relaxed">
+                • <strong>Net Salary</strong> = Gross Earnings (Basic + DA + HRA + Allowances + OT Pay) - Deductions (LOP + PF + ESI + PT + TDS + Loans).<br>
+                • <strong>LOP Deduction</strong> = (Gross / 31) × Total LOP Days. Overtime = (Basic + DA) / (22 × 8.5) × OT Hours × 1.5.
+              </p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/20 text-center shrink-0">
+              <span class="text-[10px] text-slate-300 uppercase block">October Payroll Status</span>
+              <span class="text-sm font-black text-emerald-400"><i class="fa-solid fa-circle-check mr-1"></i> Ready for Bank Transfer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Employee Pay Slip Cards Grid -->
+        <div id="payslip-employee-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TAB 3: FORM 16 & TAX COMPLIANCE PORTAL -->
+      <!-- ========================================== -->
+      <section id="tab-form16-tax" class="tab-content-panel hidden space-y-6">
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h1 class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">Form 16 & Annual Tax Compliance</h1>
+            <p class="text-xs text-slate-500 mt-0.5">Section 203 IT Act Certificate with Part A (TRACES TDS) and Part B (Salary & Chapter VI-A Deductions).</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="showToast('Bulk Form 16 dispatched via encrypted email to all 6 employees!', 'success')" class="px-3.5 py-1.5 text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg shadow-sm transition flex items-center gap-1.5">
+              <i class="fa-solid fa-paper-plane"></i> Bulk Email Form 16
+            </button>
+            <button onclick="exportStatutoryReports()" class="px-3.5 py-1.5 text-xs font-semibold bg-white border border-slate-200 text-slate-700 rounded-lg hover:bg-slate-50 shadow-sm transition flex items-center gap-1.5">
+              <i class="fa-solid fa-download"></i> Download ECR / TDS
+            </button>
+          </div>
+        </div>
+
+        <!-- Investment Proofs & TRACES Status Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+            <span class="text-[10px] uppercase font-bold text-slate-400">TRACES Portal Link</span>
+            <div class="font-bold text-slate-900 text-base mt-0.5">Quarterly TDS Challans</div>
+            <p class="text-xs text-slate-500 mt-1">Q1 & Q2 verified with Govt BSR Codes. 100% matched with 26AS.</p>
+            <span class="inline-block mt-2 px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">Active TRACES Sync</span>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+            <span class="text-[10px] uppercase font-bold text-slate-400">Chapter VI-A Portal</span>
+            <div class="font-bold text-slate-900 text-base mt-0.5">Tax Declarations (80C, 80D)</div>
+            <p class="text-xs text-slate-500 mt-1">EPF, ELSS, Medical Insurance, and HRA Rent Proofs verified.</p>
+            <span class="inline-block mt-2 px-2 py-0.5 rounded text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-200">Audit Proofs Approved</span>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+            <span class="text-[10px] uppercase font-bold text-slate-400">Tax Regime Distribution</span>
+            <div class="font-bold text-slate-900 text-base mt-0.5">Old vs New Regime</div>
+            <p class="text-xs text-slate-500 mt-1">3 Employees in Old Regime (HRA/80C) • 3 in New Regime.</p>
+            <span class="inline-block mt-2 px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">Balanced Compliance</span>
+          </div>
+        </div>
+
+        <!-- Form 16 Employee Records Table -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-4 border-b border-slate-200 flex justify-between items-center bg-slate-50">
+            <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Employee Form 16 Status Matrix (FY 2026-27)</h3>
+            <span class="text-xs text-slate-500 font-mono-numeric">Assessment Year 2027-28</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead class="bg-slate-100 text-[10px] font-bold text-slate-600 uppercase border-b border-slate-200">
+                <tr>
+                  <th class="py-2.5 px-3">Employee Details & PAN</th>
+                  <th class="py-2.5 px-3">Chosen Regime</th>
+                  <th class="py-2.5 px-3">Projected Gross Salary</th>
+                  <th class="py-2.5 px-3">Total Exemptions (80C/80D/HRA)</th>
+                  <th class="py-2.5 px-3">Annual TDS Deposited</th>
+                  <th class="py-2.5 px-3">TRACES Status</th>
+                  <th class="py-2.5 px-3 text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody id="form16-table-body" class="divide-y divide-slate-100">
+                <!-- Dynamically populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TAB 4: MULTI-TIER APPROVAL HIERARCHY -->
+      <!-- ========================================== -->
+      <section id="tab-approvals-hierarchy" class="tab-content-panel hidden space-y-6">
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h1 class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">Multi-Tier Approval Hierarchy & Regularization</h1>
+            <p class="text-xs text-slate-500 mt-0.5">Hierarchical approval flow: L1 Direct Manager &rarr; L2 Department Head (HOD) &rarr; Project Matrix Manager.</p>
+          </div>
+          <span class="px-3 py-1.5 bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold rounded-lg flex items-center gap-1.5">
+            <i class="fa-solid fa-hourglass-half text-amber-600"></i> Multi-Level Queue Active
+          </span>
+        </div>
+
+        <!-- Hierarchy Flow Explanation Banner -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm border-l-4 border-l-blue-600">
+            <div class="text-[10px] uppercase font-bold text-blue-600">Level 1 (L1 Manager)</div>
+            <h4 class="font-bold text-slate-900 text-sm mt-0.5">Direct Team Supervisor</h4>
+            <p class="text-xs text-slate-500 mt-1">Validates day-to-day missed punches, single day casual leaves, and overtime assertions.</p>
+          </div>
+          <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm border-l-4 border-l-amber-500">
+            <div class="text-[10px] uppercase font-bold text-amber-600">Level 2 (L2 HOD)</div>
+            <h4 class="font-bold text-slate-900 text-sm mt-0.5">Department Head Approval</h4>
+            <p class="text-xs text-slate-500 mt-1">Required for leaves exceeding 3 consecutive days, Loss of Pay adjustments, or medical leaves.</p>
+          </div>
+          <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm border-l-4 border-l-purple-600">
+            <div class="text-[10px] uppercase font-bold text-purple-600">Matrix Manager</div>
+            <h4 class="font-bold text-slate-900 text-sm mt-0.5">Cross-Project Co-Signer</h4>
+            <p class="text-xs text-slate-500 mt-1">Enables secondary project managers to endorse off-site and client transit attendance.</p>
+          </div>
+        </div>
+
+        <!-- Approval Cards Stream -->
+        <div class="space-y-4">
+          <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Pending Action Requests</h3>
+          <div id="approval-cards-container" class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TAB 5: GPS GEOFENCING & MULTI-LOCATION -->
+      <!-- ========================================== -->
+      <section id="tab-gps-geofencing" class="tab-content-panel hidden space-y-6">
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h1 class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">GPS Geofencing & Multi-Branch Master</h1>
+            <p class="text-xs text-slate-500 mt-0.5">Configure precise office coordinates, geofence radius (100m - 500m), and simulate mobile app validation.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-lg text-xs font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> 4 Beacons Online
+            </span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+          <!-- Left 2 Cols: Authorized Branches & Coordinates -->
+          <div class="lg:col-span-2 space-y-4">
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Registered Geofenced Branch Locations</h3>
+                <span class="text-xs text-slate-400">Haversine GPS Formula Enforced</span>
+              </div>
+              <div id="geofence-branches-list" class="space-y-3">
+                <!-- Dynamically populated via JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Col: Interactive Punch-in Geofence Simulator -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <div class="border-b border-slate-100 pb-3">
+              <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                <i class="fa-solid fa-mobile-screen-button text-blue-600"></i> Mobile Punch Simulator
+              </h3>
+              <p class="text-[11px] text-slate-400 mt-0.5">Test real-time radius tolerance and location mismatch validation.</p>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Target Office Branch</label>
+                <select id="sim-branch-select" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-lg text-xs text-slate-700 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                  <option value="LOC-01">Gurugram HQ (Radius: 250m)</option>
+                  <option value="LOC-02">Bengaluru Tech Park (Radius: 300m)</option>
+                  <option value="LOC-03">Mumbai BKC (Radius: 200m)</option>
+                  <option value="LOC-04">Noida Logistics (Radius: 400m)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Simulated User Device Offset (Meters from Center)</label>
+                <input id="sim-distance-offset" type="number" value="140" min="0" max="2000" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-lg font-mono-numeric text-xs text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <p class="text-[10px] text-slate-400 mt-1">Try values like 80 (Inside) or 650 (Outside boundary).</p>
+              </div>
+
+              <button onclick="simulatePunch()" class="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md shadow-blue-500/20 transition flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-fingerprint"></i> Simulate Mobile Punch-In
+              </button>
+
+              <div id="sim-punch-result" class="mt-4 p-4 rounded-xl border bg-slate-50 border-slate-200 text-slate-600 text-xs">
+                Select a distance and test the geofence tolerance.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TAB 6: NOTICES & ENGAGEMENT -->
+      <!-- ========================================== -->
+      <section id="tab-notices-milestones" class="tab-content-panel hidden space-y-6">
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h1 class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">Notice Board, Announcements & Milestones</h1>
+            <p class="text-xs text-slate-500 mt-0.5">Broadcast company policies with read-receipt acknowledgment, automated birthdays & work anniversaries.</p>
+          </div>
+          <button onclick="showToast('New announcement published and pushed to all active employee devices!', 'success')" class="px-3.5 py-1.5 text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-sm transition flex items-center gap-1.5">
+            <i class="fa-solid fa-bullhorn"></i> Post New Notice
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+          <!-- Left 2 Cols: Notices Stream -->
+          <div class="lg:col-span-2 space-y-4">
+            <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-clipboard-list text-blue-600"></i> Active Announcements with Read Receipts
+            </h3>
+            <div id="notices-board-list" class="space-y-4">
+              <!-- Dynamically populated via JS -->
+            </div>
+          </div>
+
+          <!-- Right Col: Milestones & Cultural Engagement -->
+          <div class="space-y-4">
+            <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-cake-candles text-pink-500"></i> Upcoming Milestones & Celebrations
+            </h3>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+              <div id="milestones-birthdays-list" class="space-y-3">
+                <!-- Dynamically populated via JS -->
+              </div>
+              <p class="text-[10px] text-slate-400 text-center pt-2">
+                Automated greetings triggered via WhatsApp Business API & HRMS banner at 09:00 AM IST on milestone day.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TAB 7: FULL & FINAL (F&F) SETTLEMENT -->
+      <!-- ========================================== -->
+      <section id="tab-fnf-settlement" class="tab-content-panel hidden space-y-6">
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h1 class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">Full & Final (F&F) Settlement Calculator</h1>
+            <p class="text-xs text-slate-500 mt-0.5">Account Department settlement engine calculating active attendance, leave encashment, notice period recovery & gratuity.</p>
+          </div>
+          <button onclick="showToast('Final Settlement Statement exported as official audit dossier!', 'success')" class="px-3.5 py-1.5 text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg shadow-sm transition flex items-center gap-1.5">
+            <i class="fa-solid fa-file-signature"></i> Finalize & Generate Voucher
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+          <!-- Left Card: Input Parameters -->
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider border-b border-slate-100 pb-2">
+              Exit Parameters & Attendance Inputs
+            </h3>
+
+            <div class="space-y-3 text-xs">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Select Resigning Employee</label>
+                <select id="fnf-employee-select" onchange="calculateFnFSettlement()" class="w-full bg-slate-50 border border-slate-200 p-2.5 rounded-lg text-xs text-slate-700 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                  <!-- Dynamically populated via JS -->
+                </select>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block font-semibold text-slate-700 mb-1">Pending Leaves to Encash (Days)</label>
+                  <input id="fnf-encash-leaves" type="number" value="12" min="0" max="60" oninput="calculateFnFSettlement()" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-lg font-mono-numeric text-xs">
+                </div>
+                <div>
+                  <label class="block font-semibold text-slate-700 mb-1">Notice Period Shortfall (Days)</label>
+                  <input id="fnf-notice-recovery" type="number" value="0" min="0" max="90" oninput="calculateFnFSettlement()" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-lg font-mono-numeric text-xs">
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input id="fnf-gratuity-check" type="checkbox" checked onchange="calculateFnFSettlement()" class="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500">
+                  <span class="font-medium text-slate-700">Eligible for Gratuity (&gt; 5 continuous years service)</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Card: Live Computed Settlement Statement -->
+          <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-md space-y-4 font-mono-numeric">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div>
+                <span class="text-[10px] uppercase font-bold text-blue-400">Account Dept Audit</span>
+                <h4 class="text-sm font-bold text-white font-sans">Final Settlement Breakdown</h4>
+              </div>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                FY 2026-27 Exit
+              </span>
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <div class="flex justify-between text-slate-300">
+                <span>Earned Monthly Salary (Synced Payable Days)</span>
+                <span id="fnf-earned-salary" class="font-bold text-white">₹0</span>
+              </div>
+              <div class="flex justify-between text-slate-300">
+                <span>Leave Encashment (Earned Leaves Encashment)</span>
+                <span id="fnf-leave-encash" class="font-bold text-emerald-400">₹0</span>
+              </div>
+              <div class="flex justify-between text-slate-300">
+                <span>Gratuity (Payment of Gratuity Act 1972)</span>
+                <span id="fnf-gratuity" class="font-bold text-emerald-400">₹0</span>
+              </div>
+              <div class="flex justify-between text-rose-300">
+                <span>Less: Notice Period Shortfall Recovery</span>
+                <span id="fnf-notice-deduct" class="font-bold">₹0</span>
+              </div>
+              <div class="flex justify-between text-rose-300">
+                <span>Less: Final Month PF & Tax Deductions</span>
+                <span id="fnf-pf-deduct" class="font-bold">₹0</span>
+              </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-4 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider text-slate-400 block font-sans font-semibold">Net Final Settlement (F&F Amount)</span>
+                <span id="fnf-net-total" class="text-2xl font-black text-emerald-400">₹0</span>
+              </div>
+              <button onclick="window.print()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition font-sans">
+                <i class="fa-solid fa-print mr-1"></i> Print Voucher
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TAB 8: ADMIN CONTROL PANEL & SECURITY -->
+      <!-- ========================================== -->
+      <section id="tab-admin-control" class="tab-content-panel hidden space-y-6">
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-800 uppercase tracking-wider">Super Admin Security</span>
+              <h1 class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">Admin Control Panel & Access Points</h1>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Control employee module access permissions, reset user login passwords, and manage yearly cloud licenses.</p>
+          </div>
+          <button onclick="openRechargeModal()" class="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-xl text-xs font-bold shadow-md shadow-amber-500/20 transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-bolt"></i> Recharge License (+1 Year)
+          </button>
+        </div>
+
+        <!-- 1. Yearly Recharge & Subscription Status Card -->
+        <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-6 rounded-2xl shadow-md border border-slate-800">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] uppercase font-bold tracking-widest text-amber-400">Subscription Status</span>
+                <span id="recharge-status-badge" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  Active (Enterprise)
+                </span>
+              </div>
+              <h3 id="recharge-plan-name" class="text-lg font-black text-white mt-1">Enterprise Unlimited Cloud License</h3>
+              <p class="text-xs text-slate-300 mt-1">Multi-location Geofencing, Automated Payroll Engine, Form 16 & Mobile GPS Unlimited Access.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 text-center shrink-0">
+              <span class="text-[10px] uppercase tracking-wider text-slate-300 block font-semibold">Remaining Validity</span>
+              <span id="recharge-days-remaining" class="text-2xl font-black text-amber-400 font-mono-numeric">364 Days</span>
+              <span class="text-[10px] text-slate-400 block mt-0.5">Valid Until: <strong id="recharge-valid-date" class="text-slate-200">2027-10-31</strong></span>
+            </div>
+          </div>
+
+          <!-- Renewal Audit History -->
+          <div class="mt-5 pt-4 border-t border-slate-800">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">License Renewal Audit Log</span>
+              <button onclick="openRechargeModal()" class="text-amber-400 hover:underline text-[11px] font-semibold flex items-center gap-1">
+                <i class="fa-solid fa-key"></i> Enter Master Recharge Key
+              </button>
+            </div>
+            <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/50">
+              <table class="w-full text-left font-mono-numeric text-xs">
+                <thead class="bg-slate-900 text-[10px] text-slate-400 uppercase border-b border-slate-800">
+                  <tr>
+                    <th class="py-2 px-3">Date</th>
+                    <th class="py-2 px-3">Extension Period</th>
+                    <th class="py-2 px-3">Receipt / Certificate No.</th>
+                    <th class="py-2 px-3">Renewed By</th>
+                    <th class="py-2 px-3">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="recharge-history-tbody" class="divide-y divide-slate-800/80">
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. User Access Points Matrix (Admin Decided User Access) -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+            <div>
+              <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                <i class="fa-solid fa-user-lock text-rose-600"></i> Admin Decided Roles & Module Access Points
+              </h3>
+              <p class="text-[11px] text-slate-500 mt-0.5">Admin decides the assigned role and operational permissions for each employee and executive account.</p>
+            </div>
+            <span class="text-[11px] text-emerald-700 font-bold bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
+              <i class="fa-solid fa-shield-check mr-1"></i> Live RBAC Enforcement
+            </span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead class="bg-slate-50 text-[10px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200">
+                <tr>
+                  <th class="py-2.5 px-3">Staff / Account Name</th>
+                  <th class="py-2.5 px-3 min-w-[170px]">Decide Role (Admin Assignment)</th>
+                  <th class="py-2.5 px-2 text-center" title="Can view and filter attendance MIS">Attendance MIS</th>
+                  <th class="py-2.5 px-2 text-center" title="Can calculate and export payroll/payslips">Finance & Payroll</th>
+                  <th class="py-2.5 px-2 text-center" title="Can access Form 16 Tax Statement">Form 16 Tax</th>
+                  <th class="py-2.5 px-2 text-center" title="Can approve regularization & leaves">Approvals (L1/L2)</th>
+                  <th class="py-2.5 px-2 text-center" title="Can configure GPS geofence radiuses">GPS Geofencing</th>
+                  <th class="py-2.5 px-2 text-center" title="Can Onboard, Edit and Delete Employees">Staff Mgmt (Add/Edit/Del)</th>
+                </tr>
+              </thead>
+              <tbody id="admin-access-table-body" class="divide-y divide-slate-100">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 3. User Credentials & Password Reset Manager -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <div>
+              <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                <i class="fa-solid fa-key text-blue-600"></i> User ID & Password Reset Manager
+              </h3>
+              <p class="text-[11px] text-slate-500 mt-0.5">Admin can reset credentials, generate secure temporary passwords, or suspend access.</p>
+            </div>
+            <span class="text-xs text-slate-400">Total User Accounts: <strong>6 Active</strong></span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead class="bg-slate-50 text-[10px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200">
+                <tr>
+                  <th class="py-2.5 px-3">Employee & Login ID</th>
+                  <th class="py-2.5 px-3">Current Password</th>
+                  <th class="py-2.5 px-3">Account Status</th>
+                  <th class="py-2.5 px-3 text-right">Security Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-password-table-body" class="divide-y divide-slate-100">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+  </div> <!-- Close app-dashboard-workspace -->
+
+  <!-- ========================================== -->
+  <!-- MODALS -->
+  <!-- ========================================== -->
+
+  <!-- 1. Pay Slip Preview & Print Modal -->
+  <div id="payslip-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[92vh] overflow-y-auto relative animate-in fade-in zoom-in duration-200">
+      <div id="payslip-modal-content">
+        <!-- Injected dynamically via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Form 16 Tax Statement Modal -->
+  <div id="form16-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[92vh] overflow-y-auto relative animate-in fade-in zoom-in duration-200">
+      <div id="form16-modal-content">
+        <!-- Injected dynamically via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-screen login portal is active as the primary entry point -->
+
+  <!-- 4. Add New Employee (Easy & Friendly Onboarding) Modal -->
+  <div id="new-employee-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[92vh] overflow-y-auto border border-slate-100 animate-in fade-in zoom-in duration-200">
+      
+      <!-- Modal Header -->
+      <div class="bg-gradient-to-r from-blue-700 via-indigo-700 to-slate-900 p-6 text-white flex items-center justify-between sticky top-0 z-10">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center text-white text-lg">
+            <i class="fa-solid fa-user-plus"></i>
+          </div>
+          <div>
+            <h3 class="font-extrabold text-base tracking-tight">Onboard New Employee</h3>
+            <p class="text-xs text-blue-200">Quick 3-step setup with auto-sync to Attendance MIS & Payroll.</p>
+          </div>
+        </div>
+        <button onclick="closeNewEmployeeModal()" class="text-white/70 hover:text-white w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Form Body -->
+      <form id="new-emp-form" onsubmit="handleCreateNewEmployee(event)" class="p-6 space-y-6">
+        
+        <!-- Section 1: Basic & Contact Details -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 pb-1 border-b border-slate-100">
+            <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-[10px] font-black flex items-center justify-center">1</span>
+            <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider">Basic Employee Information</h4>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Employee ID / Code *</label>
+              <input id="new-emp-id" type="text" readonly class="w-full bg-slate-100 border border-slate-200 p-2 rounded-xl font-mono-numeric font-bold text-blue-700 text-xs">
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block font-semibold text-slate-700 mb-1">Full Legal Name *</label>
+              <input id="new-emp-name" type="text" required placeholder="e.g. Vikram Malhotra" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Work Email Address *</label>
+              <input id="new-emp-email" type="email" required placeholder="e.g. v.malhotra@hrmis.com" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Mobile Phone Number</label>
+              <input id="new-emp-phone" type="text" placeholder="+91 98765 43210" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Department *</label>
+              <select id="new-emp-dept" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <option value="Information Technology">Information Technology</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Finance & Accounts">Finance & Accounts</option>
+                <option value="Sales & Business Dev">Sales & Business Dev</option>
+                <option value="Operations & Logistics">Operations & Logistics</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Designation / Role *</label>
+              <input id="new-emp-designation" type="text" required placeholder="e.g. Sr. Frontend Engineer" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Primary Work Location *</label>
+              <select id="new-emp-branch" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <option value="LOC-01">Gurugram HQ</option>
+                <option value="LOC-02">Bengaluru Tech Park</option>
+                <option value="LOC-03">Mumbai BKC</option>
+                <option value="LOC-04">Noida Logistics</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Date of Joining (DOJ)</label>
+              <input id="new-emp-doj" type="date" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Date of Birth (DOB)</label>
+              <input id="new-emp-dob" type="date" value="1995-04-12" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Reporting Hierarchy -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 pb-1 border-b border-slate-100">
+            <span class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-[10px] font-black flex items-center justify-center">2</span>
+            <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider">Multi-Tier Approval Hierarchy</h4>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Reporting Manager (L1) *</label>
+              <input id="new-emp-manager" type="text" value="Aarav Sharma (Principal Architect)" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Department Head (L2)</label>
+              <input id="new-emp-hod" type="text" value="Devendra Patel (CTO)" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Decide Role (System Access) *</label>
+              <select id="new-emp-role" class="w-full bg-blue-50/70 border border-blue-200 p-2 rounded-xl text-xs font-bold text-blue-900 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <option value="employee" selected>👤 Employee (Self-Service)</option>
+                <option value="manager">👔 Manager (L1/L2 Approvals)</option>
+                <option value="hr_admin">👥 HR Admin (Staff Mgmt)</option>
+                <option value="finance_admin">💰 Finance Admin (Payroll)</option>
+                <option value="super_admin">🛡️ Super Admin (Full)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Compensation & Statutory Details -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 pb-1 border-b border-slate-100">
+            <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-black flex items-center justify-center">3</span>
+            <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider">Monthly Salary & Bank Account Details</h4>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Basic Salary (₹) *</label>
+              <input id="new-emp-basic" type="number" value="45000" min="10000" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-bold text-slate-800 font-mono-numeric">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">DA (₹)</label>
+              <input id="new-emp-da" type="number" value="11000" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-mono-numeric">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">HRA (₹)</label>
+              <input id="new-emp-hra" type="number" value="22500" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-mono-numeric">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Special Allow. (₹)</label>
+              <input id="new-emp-special" type="number" value="18000" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-mono-numeric">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Bank Name</label>
+              <input id="new-emp-bank-name" type="text" value="HDFC Bank" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Bank Account Number</label>
+              <input id="new-emp-account" type="text" placeholder="50100492817291" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-mono-numeric">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">IFSC Code</label>
+              <input id="new-emp-ifsc" type="text" value="HDFC0000240" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-mono-numeric">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">PAN Number</label>
+              <input id="new-emp-pan" type="text" placeholder="ABCDE1234F" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-mono-numeric uppercase">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">UAN (PF Number)</label>
+              <input id="new-emp-uan" type="text" placeholder="101928374618" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-mono-numeric">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Income Tax Regime</label>
+              <select id="new-emp-tax-regime" class="w-full bg-slate-50 border border-slate-200 p-2 rounded-xl text-xs font-semibold">
+                <option value="New Regime">New Simplified Regime</option>
+                <option value="Old Regime">Old Regime (80C/80D/HRA)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
+          <button type="button" onclick="closeNewEmployeeModal()" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-xs transition">
+            Cancel
+          </button>
+          <button type="submit" class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-xs shadow-md shadow-blue-500/20 transition flex items-center gap-2">
+            <i class="fa-solid fa-check"></i> Complete Onboarding & Sync
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- 5. Edit Employee Modal -->
+  <div id="edit-emp-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[92vh] overflow-y-auto border border-slate-100 animate-in fade-in zoom-in duration-200">
+      <div class="bg-gradient-to-r from-blue-700 via-indigo-700 to-slate-900 p-6 text-white flex items-center justify-between sticky top-0 z-10">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center text-white text-lg">
+            <i class="fa-solid fa-user-pen"></i>
+          </div>
+          <div>
+            <h3 class="font-extrabold text-base tracking-tight">Edit Employee Profile</h3>
+            <p class="text-xs text-blue-200">Update staff details, department assignment, and monthly compensation.</p>
+          </div>
+        </div>
+        <button onclick="closeEditEmployeeModal()" class="text-white/70 hover:text-white w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="edit-emp-form" onsubmit="handleUpdateEmployee(event)" class="p-6 space-y-5">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Employee ID</label>
+            <input id="edit-emp-id" type="text" readonly class="w-full bg-slate-100 border border-slate-200 p-2.5 rounded-xl font-mono-numeric font-bold text-blue-700 text-xs">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block font-semibold text-slate-700 mb-1">Full Legal Name *</label>
+            <input id="edit-emp-name" type="text" required class="w-full bg-slate-50 border border-slate-200 p-2.5 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Work Email Address *</label>
+            <input id="edit-emp-email" type="email" required class="w-full bg-slate-50 border border-slate-200 p-2.5 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Department *</label>
+            <select id="edit-emp-dept" class="w-full bg-slate-50 border border-slate-200 p-2.5 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+              <option value="Information Technology">Information Technology</option>
+              <option value="Human Resources">Human Resources</option>
+              <option value="Finance & Accounts">Finance & Accounts</option>
+              <option value="Sales & Business Dev">Sales & Business Dev</option>
+              <option value="Operations & Logistics">Operations & Logistics</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Designation / Role *</label>
+            <input id="edit-emp-designation" type="text" required class="w-full bg-slate-50 border border-slate-200 p-2.5 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Primary Work Location *</label>
+            <select id="edit-emp-branch" class="w-full bg-slate-50 border border-slate-200 p-2.5 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+              <option value="LOC-01">Gurugram HQ</option>
+              <option value="LOC-02">Bengaluru Tech Park</option>
+              <option value="LOC-03">Mumbai BKC</option>
+              <option value="LOC-04">Noida Logistics</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Reporting Manager (L1) *</label>
+            <input id="edit-emp-manager" type="text" required class="w-full bg-slate-50 border border-slate-200 p-2.5 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Decide System Role *</label>
+            <select id="edit-emp-role" class="w-full bg-blue-50/70 border border-blue-200 p-2.5 rounded-xl text-xs font-bold text-blue-900 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+              <option value="super_admin">🛡️ Super Admin (Full Control)</option>
+              <option value="hr_admin">👥 HR Admin (Staff Mgmt)</option>
+              <option value="finance_admin">💰 Finance Admin (Payroll)</option>
+              <option value="manager">👔 Manager (Approvals)</option>
+              <option value="employee">👤 Standard Employee (Self-Service)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="space-y-2 pt-2 border-t border-slate-100">
+          <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider">Salary Structure Revisions</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Basic Salary (₹)</label>
+              <input id="edit-emp-basic" type="number" class="w-full bg-slate-50 border border-slate-200 p-2.5 rounded-xl text-xs font-bold text-slate-800 font-mono-numeric">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">HRA (₹)</label>
+              <input id="edit-emp-hra" type="number" class="w-full bg-slate-50 border border-slate-200 p-2.5 rounded-xl text-xs font-mono-numeric">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Special Allow. (₹)</label>
+              <input id="edit-emp-special" type="number" class="w-full bg-slate-50 border border-slate-200 p-2.5 rounded-xl text-xs font-mono-numeric">
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
+          <button type="button" onclick="closeEditEmployeeModal()" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-xs transition">
+            Cancel
+          </button>
+          <button type="submit" class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-xs shadow-md shadow-blue-500/20 transition flex items-center gap-2">
+            <i class="fa-solid fa-floppy-disk"></i> Save & Update Profile
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 6. Password Reset Modal (Admin Panel) -->
+  <div id="reset-password-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full border border-slate-100 animate-in fade-in zoom-in duration-200 overflow-hidden">
+      <div class="bg-gradient-to-r from-blue-700 to-indigo-700 p-6 text-white flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center text-white text-lg">
+            <i class="fa-solid fa-key"></i>
+          </div>
+          <div>
+            <h3 class="font-extrabold text-base tracking-tight">Reset User Password</h3>
+            <p class="text-xs text-blue-200">Admin security control for user credentials.</p>
+          </div>
+        </div>
+        <button onclick="closeResetPasswordModal()" class="text-white/70 hover:text-white w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleAdminPasswordReset(event)" class="p-6 space-y-4 text-xs">
+        <div class="bg-slate-50 border border-slate-200 p-3 rounded-2xl space-y-1">
+          <div class="text-slate-500 text-[11px]">Selected Account:</div>
+          <div id="reset-target-user-name" class="font-bold text-slate-900 text-sm">Employee Name</div>
+          <div class="text-[11px] text-slate-600 font-mono-numeric">Login Username: <span id="reset-target-username" class="font-bold text-blue-600">admin</span></div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1.5">New Password *</label>
+          <div class="relative">
+            <input id="reset-new-password" type="text" required class="w-full bg-slate-50 border border-slate-200 p-2.5 rounded-xl text-xs font-mono font-bold text-slate-800 pr-24 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            <button type="button" onclick="generateRandomPassword()" class="absolute right-1.5 top-1.5 px-2.5 py-1 text-[10px] font-bold bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-lg transition">
+              <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Random
+            </button>
+          </div>
+          <p class="text-[10px] text-slate-400 mt-1">Min 8 characters. User will be required to authenticate with this new key.</p>
+        </div>
+
+        <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+          <button type="button" onclick="closeResetPasswordModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-xs transition">
+            Cancel
+          </button>
+          <button type="submit" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-xs shadow-md shadow-blue-500/20 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-check"></i> Save New Password
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 7. Yearly License Recharge Modal -->
+  <div id="recharge-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full border border-slate-100 animate-in fade-in zoom-in duration-200 overflow-hidden">
+      <div class="bg-gradient-to-r from-amber-600 via-orange-600 to-slate-900 p-6 text-white flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center text-white text-lg">
+            <i class="fa-solid fa-certificate"></i>
+          </div>
+          <div>
+            <h3 class="font-extrabold text-base tracking-tight">Yearly License Recharge</h3>
+            <p class="text-xs text-amber-200">Extend enterprise license by +1 Year (365 Days).</p>
+          </div>
+        </div>
+        <button onclick="closeRechargeModal()" class="text-white/70 hover:text-white w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleYearlyRecharge(event)" class="p-6 space-y-4 text-xs">
+        <div class="bg-amber-50 border border-amber-200 p-3.5 rounded-2xl flex items-start gap-3">
+          <div class="w-8 h-8 rounded-lg bg-amber-500 text-white flex items-center justify-center text-sm shrink-0">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div class="text-[11px] text-amber-900">
+            <span class="font-bold">Enterprise Security Verification:</span><br>
+            Please enter your authorized yearly master renewal code to grant +365 days unlimited employee access.
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1.5">Hidden Master Recharge Code *</label>
+          <div class="relative">
+            <input id="recharge-secret-code" type="password" required placeholder="Enter secret recharge code..." class="w-full bg-slate-50 border border-slate-200 p-2.5 rounded-xl text-xs font-mono font-bold text-slate-800 pr-10 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+            <button type="button" onclick="togglePasswordVisibility('recharge-secret-code', 'recharge-eye-icon')" class="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600">
+              <i id="recharge-eye-icon" class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+          <p class="text-[10px] text-slate-400 mt-1">
+            <i class="fa-solid fa-lock mr-1"></i> Code is hidden for security. (Default Master Code: <span class="font-mono text-slate-600">-12072023</span>)
+          </p>
+        </div>
+
+        <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+          <button type="button" onclick="closeRechargeModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-xs transition">
+            Cancel
+          </button>
+          <button type="submit" class="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold rounded-xl text-xs shadow-md shadow-amber-500/20 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-bolt"></i> Verify & Recharge +1 Year
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating Toast Notifications -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
